@@ -26,8 +26,6 @@ function AlbumFeature(props) {
 		<div>
 			{/* <h2>Có thể bạn sẽ thích đấy</h2>
 			<AlbumList albumList={albumList} /> */}
-			<ColorBox />
-			<Counter />
 		</div>
 	)
 }
