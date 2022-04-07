@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Album from "../Album"
+import Album from "../Album/Album"
 import "./style.scss"
 
 function AlbumList({ albumList }) {
