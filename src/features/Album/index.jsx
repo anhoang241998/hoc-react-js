@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import AlbumList from "./components/AlbumList/AlbumList"
+import ColorBox from "./components/ColorBox/ColorBox"
+import Counter from "./components/Counter/Counter"
 
 function AlbumFeature(props) {
 	const albumList = [
@@ -22,8 +24,10 @@ function AlbumFeature(props) {
 	]
 	return (
 		<div>
-			<h2>Có thể bạn sẽ thích đấy</h2>
-			<AlbumList albumList={albumList} />
+			{/* <h2>Có thể bạn sẽ thích đấy</h2>
+			<AlbumList albumList={albumList} /> */}
+			<ColorBox />
+			<Counter />
 		</div>
 	)
 }
