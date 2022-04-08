@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
-import Pagination from "./components/Pagination/Pagination"
-import PostList from "./components/PostList/PostList"
 import queryString from "query-string"
-import PostFilterForm from "./components/PostFilterForm/PostFilterForm"
+import { useEffect, useState } from "react"
+import BetterClock from "./components/BetterClock/BetterClock"
 import Clock from "./components/Clock/Clock"
+import MagicBox from "./components/MagicBox/MagicBox"
 
 function App() {
 	const [postList, setPostList] = useState([])
@@ -55,12 +54,14 @@ function App() {
 	const [showClock, setShowClock] = useState(true)
 
 	return (
-		<div className="App">
+		<div className="App" style={{ color: "#F62682" }}>
 			<h1>React hooks - Clock</h1>
-			{showClock && <Clock />}
+			<MagicBox />
+			{/* {showClock && <Clock />}
+			<BetterClock />
 			<button onClick={() => setShowClock(showClock ? false : true)}>
 				Hide Clock
-			</button>
+			</button> */}
 			{/* <PostFilterForm onSubmit={handleFiltersChange} />
 			<PostList posts={postList} />
 			<Pagination pagination={pagination} onPageChange={handlePageChange} /> */}

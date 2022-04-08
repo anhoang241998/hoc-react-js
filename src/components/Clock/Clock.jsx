@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react"
-import { formatDate } from "../../utils/DateFormat"
+import React from "react"
+import useClock from "../../hooks/useClock"
 
 function Clock() {
-	const [timeString, setTimeString] = useState("")
-
-	useEffect(() => {
-		const clockInterval = setInterval(() => {
-			const now = new Date()
-			// hh:mm:ss aa
-			const newTimeString = formatDate(now)
-
-			setTimeString(newTimeString)
-		}, 1000)
-
-		return () => {
-			// clean up
-			console.log("Clock cleanup")
-			clearInterval(clockInterval)
-		}
-	}, [])
-
+	const { timeString } = useClock()
 	return (
 		<>
 			<p style={{ fontSize: "42px" }}>{timeString}</p>
