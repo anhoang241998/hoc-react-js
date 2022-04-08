@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import Pagination from "./components/Pagination/Pagination"
 import PostList from "./components/PostList/PostList"
 import queryString from "query-string"
+import PostFilterForm from "./components/PostFilterForm/PostFilterForm"
+import Clock from "./components/Clock/Clock"
 
 function App() {
 	const [postList, setPostList] = useState([])
@@ -13,6 +15,7 @@ function App() {
 	const [filters, setFilters] = useState({
 		_limit: 10,
 		_page: 1,
+		title_like: "",
 	})
 
 	useEffect(() => {
@@ -41,11 +44,26 @@ function App() {
 		})
 	}
 
+	const handleFiltersChange = (newFilters) => {
+		setFilters({
+			...filters,
+			_page: 1,
+			title_like: newFilters.searchTerm,
+		})
+	}
+
+	const [showClock, setShowClock] = useState(true)
+
 	return (
 		<div className="App">
-			<h1>React hooks - PostList</h1>
+			<h1>React hooks - Clock</h1>
+			{showClock && <Clock />}
+			<button onClick={() => setShowClock(showClock ? false : true)}>
+				Hide Clock
+			</button>
+			{/* <PostFilterForm onSubmit={handleFiltersChange} />
 			<PostList posts={postList} />
-			<Pagination pagination={pagination} onPageChange={handlePageChange} />
+			<Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
 			{/* <TodoFeature /> */}
 			{/* <AlbumFeature /> */}
 		</div>
