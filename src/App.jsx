@@ -1,8 +1,6 @@
 import queryString from "query-string"
 import { useEffect, useState } from "react"
-import BetterClock from "./components/BetterClock/BetterClock"
-import Clock from "./components/Clock/Clock"
-import MagicBox from "./components/MagicBox/MagicBox"
+import Hero from "./components/Hero/Hero"
 
 function App() {
 	const [postList, setPostList] = useState([])
@@ -53,10 +51,22 @@ function App() {
 
 	const [showClock, setShowClock] = useState(true)
 
+	const [count, setCount] = useState(0)
+
+	const handleHeroClick = () => {}
+
 	return (
 		<div className="App" style={{ color: "#F62682" }}>
-			<h1>React hooks - Clock</h1>
-			<MagicBox />
+			<h1>React hooks - Memoization</h1>
+			<p>{count}</p>
+			<button
+				onClick={() => {
+					setCount(count + 1)
+				}}>
+				Increase
+			</button>
+			<Hero name="Easy frontend" onClick={handleHeroClick} />
+			{/* <MagicBox /> */}
 			{/* {showClock && <Clock />}
 			<BetterClock />
 			<button onClick={() => setShowClock(showClock ? false : true)}>
